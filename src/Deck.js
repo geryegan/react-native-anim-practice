@@ -18,9 +18,17 @@ class Deck extends Component {
     }
 
     getCardStyle() {
+        //destructure position property off of state
+        const { position } = this.state;
+        //interpolate x drag distance  with card rotation
+        const rotate = position.x.interpolate({
+            inputRange: [-500, 0, 500],
+            outputRange: ['-120deg', '0deg', '120deg']
+        })
         return {
+            ///to be passed in to animated.view
             ...this.state.position.getLayout(),
-            transform: [{ rotate: '-45deg' }]
+            transform: [{ rotate }]
     };
     }
 
