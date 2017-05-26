@@ -32,12 +32,12 @@ export default class App extends React.Component {
   }
   render() {
     return (
-      <ScrollView style={styles.container}>
+      <View style={styles.container}>
         <Deck 
           data={DATA} 
           renderCard={this.renderCard}
         />
-      </ScrollView>
+      </View>
     );
   }
 }
