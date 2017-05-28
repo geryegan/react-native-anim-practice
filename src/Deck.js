@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { View, Animated, PanResponder, Text } from 'react-native';
+import { View, Animated, PanResponder, Text, Dimensions } from 'react-native';
+
+const SCREEN_WIDTH = Dimensions.get('window').width;
 
 class Deck extends Component {
     constructor(props) {
@@ -22,7 +24,7 @@ class Deck extends Component {
         const { position } = this.state;
         //interpolate x drag distance  with card rotation
         const rotate = position.x.interpolate({
-            inputRange: [-500, 0, 500],
+            inputRange: [-SCREEN_WIDTH * 2, 0, SCREEN_WIDTH * 2],
             outputRange: ['-120deg', '0deg', '120deg']
         })
         return {
